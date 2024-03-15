@@ -1,35 +1,30 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import { ComponentA } from "./ComponentA";
+import { ComponentB } from "./ComponentB";
+import { CountContextProvider } from "./CountContext";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <CountContextProvider>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-around",
+          marginLeft: "auto",
+          marginRight: "auto",
+          marginTop: "30px",
+          marginBottom: "30px",
+          paddingTop: "20px",
+          paddingBottom: "20px",
+          borderRadius: "10px",
+          boxShadow: "0px 0px 10px black",
+        }}
+      >
+        <ComponentA />
+        <ComponentB />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </CountContextProvider>
+  );
 }
 
-export default App
+export default App;
